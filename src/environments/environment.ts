@@ -4,6 +4,9 @@
 
 export const environment = {
   production: false,
+  appId: '222a8b8d25330aba80e6c0b6faf146fc',
+  baseUrl: 'https://api.openweathermap.org/data/2.5/weather?q=',
+  // api.openweathermap.org/data/2.5/weather?q={city name},{state code}&appid={your api key}
 }
 
 /*

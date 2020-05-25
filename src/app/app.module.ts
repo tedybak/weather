@@ -1,14 +1,16 @@
+import { WeatherService } from './weather/weather.service'
 import { BrowserModule } from '@angular/platform-browser'
 import { NgModule } from '@angular/core'
-
+import { HttpClientModule } from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module'
-import { AppComponent } from './app.component';
+import { AppComponent } from './app.component'
 import { CurrentWeatherComponent } from './current-weather/current-weather.component'
+import { fromEventPattern } from 'rxjs'
 
 @NgModule({
   declarations: [AppComponent, CurrentWeatherComponent],
-  imports: [BrowserModule, AppRoutingModule],
-  providers: [],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  providers: [WeatherService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
