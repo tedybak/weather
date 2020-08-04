@@ -8,12 +8,12 @@ import { Component, OnInit } from '@angular/core'
   styleUrls: ['./current-weather.component.css'],
 })
 export class CurrentWeatherComponent implements OnInit {
-  current: ICurrentWeather
+  current: any
   constructor(private service: WeatherService) {}
 
   ngOnInit(): void {
-    this.service
-      .getCurrentWeather('London', 'gb')
-      .subscribe((data) => (this.current = data))
+    this.service.getCurrentWeather('London').subscribe((data) => {
+      this.current = data
+    })
   }
 }

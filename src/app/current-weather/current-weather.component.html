@@ -1,7 +1,24 @@
 <div *ngIf="current">
-  <div> <span>{{current.city}}, {{current.country}} </span> <span>{{current.date | date:'fullDate'}}</span> </div>
-  <div> <img [src]='current.image' width="25%" height="25%"> <span>{{current.temperature | number:'1.0-0'}}℉</span>
+  <div> 
+      <h1>{{current.name}}, {{current.sys.country}} </h1> 
+      <h1>{{current.date | date:'fullDate'}}</h1>
   </div>
-  <div> {{current.description}} </div>
+  <div> <img src="https://openweathermap.org/img/wn/{{current.weather[0]['icon']}}.png" height="40%" width="40%"> <span>{{current.main.fahrenheit.temp | number:'1.0-0'}}℉</span>
+  </div>
+  <div> <h1>{{current.weather[0]['description']}}</h1> </div>
 
 </div>
+
+<table   id="table-example-1">
+  <tr><th colspan="2">Celcius</th><th colspan="2">Farenheit</th></tr>
+  <tr><th>Temp</th><th>{{current.main.celcius.temp}}</th><th>Temp</th><th>{{current.main.fahrenheit.temp}}</th></tr>
+  <tr><th>Feels Like</th><th>{{current.main.celcius.feels_like}}</th><th>Feels Like</th><th>{{current.main.fahrenheit.temp}}</th></tr>
+  <tr><th>Temp Min</th><th>{{current.main.celcius.temp_min}}</th><th>Temp Min</th><th>{{current.main.fahrenheit.temp}}</th></tr>
+  <tr><th>Temp Max</th><th>{{current.main.celcius.temp_max}}</th><th>Temp Max</th><th>{{current.main.fahrenheit.temp}}</th> </tr> 
+</table>
+
+ 
+  
+
+ 
+ 

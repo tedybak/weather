@@ -19,12 +19,8 @@ interface ICurrentWeatherData {
 export class WeatherService {
   constructor(private _httpClient: HttpClient) {}
 
-  getCurrentWeather(city: string, country: string): Observable<ICurrentWeather> {
-    return this._httpClient
-      .get<ICurrentWeatherData>(
-        `${environment.baseUrl}` + `${city},${country}&appid=${environment.appId}`
-      )
-      .pipe(map((data) => this.transformToICurrentWeather(data)))
+  getCurrentWeather(city: string) {
+    return this._httpClient.get(`${environment.baseUrl}` + `${city}`)
   }
 
   private transformToICurrentWeather(data: ICurrentWeatherData): ICurrentWeather {
