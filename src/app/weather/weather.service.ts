@@ -1,6 +1,6 @@
 import { ICurrentWeather } from './../icurrent-weather'
 import { environment } from './../../environments/environment'
-import { HttpClient } from '@angular/common/http'
+import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Injectable } from '@angular/core'
 import { Observable } from 'rxjs'
 import { map } from 'rxjs/operators'
@@ -20,6 +20,8 @@ export class WeatherService {
   constructor(private _httpClient: HttpClient) {}
 
   getCurrentWeather(city: string) {
+    let headers = new HttpHeaders()
+    headers = headers.set('Content-type', 'application/json')
     return this._httpClient.get(`${environment.baseUrl}` + `${city}`)
   }
 

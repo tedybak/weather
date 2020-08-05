@@ -1,24 +1,60 @@
+<form #myForm="ngForm" (ngSubmit)="procesar(myForm.value)">
+  <div class="form-group">
+  <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input" name="city"   ngModel #city="ngModel" > 
+</div>
+  <div class="form-group"> 
+    <button class="form-control btn btn-dark" [disabled]="!myForm.valid">Enviar</button> 
+  </div> 
+</form>
+
+
+
 <div *ngIf="current">
   <div> 
       <h1>{{current.name}}, {{current.sys.country}} </h1> 
       <h1>{{current.date | date:'fullDate'}}</h1>
   </div>
-  <div> <img src="https://openweathermap.org/img/wn/{{current.weather[0]['icon']}}.png" height="40%" width="40%"> <span>{{current.main.fahrenheit.temp | number:'1.0-0'}}℉</span>
+  <div> <img src="https://openweathermap.org/img/wn/{{current.weather[0]['icon']}}.png" height="15%" width="15%"> 
+    <h1>{{current.main.fahrenheit.temp | number:'1.0-0'}}℉</h1>
   </div>
   <div> <h1>{{current.weather[0]['description']}}</h1> </div>
 
-</div>
+</div> 
 
-<table   id="table-example-1">
-  <tr><th colspan="2">Celcius</th><th colspan="2">Farenheit</th></tr>
-  <tr><th>Temp</th><th>{{current.main.celcius.temp}}</th><th>Temp</th><th>{{current.main.fahrenheit.temp}}</th></tr>
-  <tr><th>Feels Like</th><th>{{current.main.celcius.feels_like}}</th><th>Feels Like</th><th>{{current.main.fahrenheit.temp}}</th></tr>
-  <tr><th>Temp Min</th><th>{{current.main.celcius.temp_min}}</th><th>Temp Min</th><th>{{current.main.fahrenheit.temp}}</th></tr>
-  <tr><th>Temp Max</th><th>{{current.main.celcius.temp_max}}</th><th>Temp Max</th><th>{{current.main.fahrenheit.temp}}</th> </tr> 
+ 
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Kelvin</th>
+      <th scope="col">Farenheit</th>
+      <th scope="col">Celcius</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Temp</th>
+      <td>{{current.main.temp}}</td>
+      <td>{{current.fahrenheit.temp}}</td>
+      <td>{{current.celcius.temp}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Feels Like</th>
+      <td>{{current.main.feels_like}}</td>
+      <td>{{current.fahrenheit.temp}}</td>
+      <td>{{current.celcius.temp}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Temp Min</th>
+      <td>{{current.main.temp_min}}</td>
+      <td>{{current.fahrenheit.temp}}</td>
+      <td>{{current.celcius.temp}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Temp Max</th>
+      <td>{{current.main.temp_max}}</td>
+      <td>{{current.fahrenheit.temp}}</td>
+      <td>{{current.celcius.temp}}</td>
+    </tr>    
+  </tbody>
 </table>
-
- 
-  
-
- 
- 
