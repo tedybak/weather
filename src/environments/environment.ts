@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   appId: '481d3aeabb787f74961c9a930edd99b0',
-  baseUrl: 'http://openweather.local/api/v1/city/',
+  baseUrl: 'https://api.openweathermap.org/data/2.5/weather?q=',
   // api.openweathermap.org/data/2.5/weather?q={city name},{state code}&appid={your api key}
 }
 
